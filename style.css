@@ -1,0 +1,365 @@
+:root {
+  --pozadina: #ffffff; /* bijela, glavna */
+  --svijetla: #eef6f8; /* vrlo blaga plavkasta za sekcije */
+  --glavna: #2f6f8f; /* smirena plava: naslovi, linkovi */
+  --naglasak: #4caf8f; /* blaga zelena: gumbi, ikone */
+  --tekst: #1f2d33; /* tamna, ali ne crna */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  color: var(--tekst);
+  line-height: 1.6;
+  background: var(--pozadina);
+}
+
+h1, h2, h3 { color: var(--glavna); }
+
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem max(1.5rem, calc((100% - 1100px) / 2));
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--tekst);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+nav a {
+  text-decoration: none;
+  color: var(--tekst);
+}
+nav a:hover {
+  color: var(--naglasak);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--naglasak);
+  color: white !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--svijetla), #e6f4ee);
+  text-align: center;
+  padding: 5rem 1.5rem;
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  max-width: 700px;
+  margin: 0 auto 1rem;
+}
+.hero p {
+  margin-bottom: 1.5rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--tekst);
+  color: white;
+}
+
+/* Zajednički razmak za sve sekcije unutar main */
+main section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Trenutna stranica u izborniku */
+nav a[aria-current="page"] {
+  font-weight: 700;
+  border-bottom: 2px solid var(--naglasak);
+}
+
+/* Naslov stranice */
+.naslov-stranice {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.naslov-stranice h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 0.5rem;
+}
+.napomena {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--svijetla);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* Cjenik u mreži */
+.cjenik {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.kartica {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+.kartica h2 {
+  font-size: 1.3rem;
+}
+.cijena {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--naglasak);
+}
+.trajanje {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Kvačice umjesto točkica */
+.kartica ul,
+.pravila ul {
+  list-style: none;
+}
+.kartica li,
+.pravila li {
+  padding: 0.3rem 0;
+}
+.kartica li::before,
+.pravila li::before {
+  content: "✓ ";
+  color: var(--naglasak);
+  font-weight: 700;
+}
+
+/* Pravila */
+.pravila {
+  background: var(--svijetla);
+  border-radius: 16px;
+  text-align: center;
+  margin-bottom: 3rem !important;
+}
+.pravila h2 {
+  margin-bottom: 1rem;
+}
+.pravila .btn {
+  margin-top: 1.5rem;
+}
+
+
+/* Kontakt */
+.kontakt {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.obrazac,
+.info {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+.obrazac {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.obrazac label {
+  font-weight: 600;
+  margin-top: 0.6rem;
+}
+.obrazac input,
+.obrazac select,
+.obrazac textarea {
+  font: inherit;
+  padding: 0.7rem;
+  border: 1px solid #c9d6df;
+  border-radius: 10px;
+}
+.obrazac input:focus,
+.obrazac select:focus,
+.obrazac textarea:focus {
+  outline: 3px solid var(--svijetla);
+  border-color: var(--naglasak);
+}
+.obrazac .btn {
+  margin-top: 1.2rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.info h2 {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+.info iframe {
+  width: 100%;
+  height: 250px;
+  border: 0;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+main .hero {
+  max-width: none;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+
+/* Prednosti i recenzije */
+.prednosti h2, .usluge-ukratko h2, .tim h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.prednosti-mreza {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+.prednosti article, .usluge-ukratko article, .tim article{
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+.ikona {
+  font-size: 2.5rem;
+}
+
+
+/* Izbornik: na računalu linkovi stoje u jednom redu */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Na računalu se gumb ☰ ne prikazuje */
+.hamburger {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Mobitel: zaslon uži od 700px */
+@media (max-width: 700px) {
+  .hamburger {
+    display: block;
+  }
+
+  nav ul {
+    display: none; /* linkovi su skriveni */
+    flex-direction: column; /* jedan ispod drugoga */
+    width: 100%;
+  }
+
+  nav ul.otvoren {
+    display: flex;
+  } /* prikažu se kad JS doda klasu */
+
+  nav {
+    flex-wrap: wrap;
+  }
+}
+
+
+.tim img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+.uloga {
+  color: var(--naglasak);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.cta {
+  text-align: center;
+}
+
+.usluge-ukratko {
+ text-align: center;
+}
+
+.prednosti .prednosti-mreza {
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 900px) {
+  .prednosti .prednosti-mreza { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .prednosti .prednosti-mreza { grid-template-columns: 1fr; }
+}
+
+.gumbi {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.btn-sekundarni {
+  background: white;
+  color: var(--glavna) !important;
+  border: 2px solid var(--glavna);
+}
+
+/* Uredan cjenik */
+.kartica {
+  display: flex;
+  flex-direction: column;
+}
+.kartica h2 {
+  min-height: 4.8em;   /* 3 reda × 1.6 visine reda */
+  align-items: flex-end;
+}
+
+.kartica ul {
+  text-align: left;           /* kvačice u ravnoj liniji */
+  margin-top: 1rem;
+  border-top: 1px solid var(--svijetla);
+  padding-top: 1rem;
+}
